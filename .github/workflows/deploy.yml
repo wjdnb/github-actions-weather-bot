@@ -1,4 +1,3 @@
-# This is a basic workflow to help you get started with Actions
 
 name: Build and Deploy
 
@@ -15,3 +14,28 @@ jobs:
       with:
         branch: gh-pages
         folder: .
+
+    - name: Send mail ✉️
+      uses: dawidd6/action-send-mail@v2
+      with:
+        server_address: smtp.163.com
+        server_port: 465
+        username: ${{secrets.MAIL_USERNAME}}
+        password: ${{secrets.MAIL_PASSWORD}}
+        subject: send test
+        # Read file contents as body:
+        body: file://index.html
+        to: 598777720@qq.com
+        from: hgwxxdd # <user@example.com>
+
+        # Optional carbon copy recipients
+        # cc: kyloren@starkiller.com,leia@alderaan.com
+        # Optional blind carbon copy recipients
+        # bcc: r2d2@jakku.com,hansolo@milleniumfalcon.com
+        # Optional content type (defaults to text/plain):
+        content_type: text/html
+        # Optional converting Markdown to HTML (set content_type to text/html too):
+        convert_markdown: true
+        # Optional attachments:
+        # attachments: attachments.zip,git.diff,./dist/static/main.js
+
