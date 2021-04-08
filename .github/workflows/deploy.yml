@@ -1,14 +1,9 @@
 
 name: Build and Deploy
-
-<<<<<<< HEAD
-on: [push]
-=======
 on: 
   push:
   schedule: 
-    - cron: '0 7 * * *'
->>>>>>> e4ed001... add node.js
+    - cron: '0 0 * * *'
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -37,7 +32,7 @@ jobs:
         server_port: 465
         username: ${{secrets.MAIL_USERNAME}}
         password: ${{secrets.MAIL_PASSWORD}}
-        subject: dress-assistant
+        subject: 今日穿衣建议
         # Read file contents as body:
         body: file://index.html
         to: 598777720@qq.com
