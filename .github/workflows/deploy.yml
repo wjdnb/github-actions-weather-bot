@@ -2,8 +2,9 @@
 name: Build and Deploy
 on: 
   push:
+  # 定时器
   schedule: 
-    - cron: '0 0 * * *'
+    - cron: '0 22 * * *'
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -16,8 +17,8 @@ jobs:
       with:
         node-version: '12'
 
-    - name: Get advice
-      run: npm install && npm run advice
+    - name: Get suggestion
+      run: npm install && npm run suggestion
 
     - name: Deploy 🚀
       uses: JamesIves/github-pages-deploy-action@4.1.0
@@ -28,22 +29,18 @@ jobs:
     - name: Send mail ✉️
       uses: dawidd6/action-send-mail@v2
       with:
+        # smtp 服务器地址
         server_address: smtp.163.com
+        # smtp 服务器端口
         server_port: 465
         username: ${{secrets.MAIL_USERNAME}}
         password: ${{secrets.MAIL_PASSWORD}}
         subject: 今日穿衣建议
-        # Read file contents as body:
         body: file://index.html
         to: 598777720@qq.com
-        from: hgwxxdd # <user@example.com>
-
-        # Optional carbon copy recipients
-        # cc: kyloren@starkiller.com,leia@alderaan.com
-        # Optional blind carbon copy recipients
-        # bcc: r2d2@jakku.com,hansolo@milleniumfalcon.com
-        # Optional content type (defaults to text/plain):
+        from: hgwxxdd 
         content_type: text/html
-        # Optional converting Markdown to HTML (set content_type to text/html too):
         convert_markdown: true
+
+        
 
