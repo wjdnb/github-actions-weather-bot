@@ -1,0 +1,24 @@
+{
+  "name": "github-actions-weather-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "suggestion": "node ./index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hgwxxdd/github-actions-weather-bot"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Hgwxxdd/github-actions-weather-bot/issues"
+  },
+  "homepage": "https://github.com/Hgwxxdd/github-actions-weather-bot#readme",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "cheerio": "^1.0.0-rc.5"
+  }
+}
